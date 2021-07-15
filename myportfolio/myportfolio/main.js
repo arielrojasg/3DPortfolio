@@ -15,6 +15,7 @@ const renderer = new THREE.WebGL1Renderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
+camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
@@ -32,6 +33,9 @@ const jeff = new THREE.Mesh(
   new THREE.MeshBasicMaterial({map:jeffTexture})
 );
 
+jeff.position.z = -5;
+jeff.position.x = 2;
+
 //moon with normal texture
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
@@ -44,13 +48,19 @@ const moon = new THREE.Mesh(
       normalMap:normalTexture
     }));
 
+moon.position.z = 30;
+moon.position.setX(-10);
+
 //light creation
 const ambientLight = new THREE.AmbientLight(0xffffff);
 const pointLight = new THREE.PointLight(0xffffff);
-const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200,50);
+pointLight.position.set(5,5,5);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+//helpers
+//const lightHelper = new THREE.PointLightHelper(pointLight);
+//const gridHelper = new THREE.GridHelper(200,50);
+
+//const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25,24,24);
@@ -62,21 +72,39 @@ function addStar() {
   scene.add(star);
 }
 
-pointLight.position.set(5,5,5);
-
 //add to scene
 scene.add(torus);
 scene.add(ambientLight);
 scene.add(pointLight);
-scene.add(lightHelper);
-scene.add(gridHelper);
+//scene.add(lightHelper);
+//scene.add(gridHelper);
 scene.add(jeff);
 scene.add(moon);
 //Adds 200 stars to the scene
 Array(200).fill().forEach(addStar);
 
+//background
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
+
+
+//Scroll Animation
+function moveCamera(){
+  const t = document.body.getBoundingClientRect().top;
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+
+  jeff.rotation.y += 0.01;
+  jeff.rotation.z += 0.01;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.position.y = t * -0.0002;
+
+}
+
+document.body.onscroll = moveCamera;
 
 function animate() {
   requestAnimationFrame(animate);
@@ -84,7 +112,7 @@ function animate() {
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
 
-  controls.update();
+  //controls.update();
 
   renderer.render(scene, camera);
 }
