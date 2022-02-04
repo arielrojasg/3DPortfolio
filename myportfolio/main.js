@@ -27,11 +27,11 @@ const material = new THREE.MeshStandardMaterial({color:0xFF6347});
 const torus = new THREE.Mesh(geometry, material);
 
 //cube with img texture
-const jeffTexture = new THREE.TextureLoader().load('jeff.png');
+const jeffTexture = new THREE.TextureLoader().load('ariel.jpg');
 const jeff = new THREE.Mesh( 
   new THREE.BoxGeometry(3,3,3),
   new THREE.MeshBasicMaterial({map:jeffTexture})
-);
+)
 
 jeff.position.z = -5;
 jeff.position.x = 2;
