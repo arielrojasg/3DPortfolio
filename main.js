@@ -27,7 +27,7 @@ const material = new THREE.MeshStandardMaterial({color:0xFF6347});
 const torus = new THREE.Mesh(geometry, material);
 
 //cube with img texture
-const jeffTexture = new THREE.TextureLoader().load('ariel.jpg');
+const jeffTexture = new THREE.TextureLoader().load('assets/ariel.jpg');
 const jeff = new THREE.Mesh( 
   new THREE.BoxGeometry(3,3,3),
   new THREE.MeshBasicMaterial({map:jeffTexture})
@@ -37,8 +37,8 @@ jeff.position.z = -5;
 jeff.position.x = 2;
 
 //moon with normal texture
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load('assets/moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('assets/normal.jpg');
 
 const moon = new THREE.Mesh( 
   new THREE.SphereGeometry(3,32,32),
@@ -84,7 +84,7 @@ scene.add(moon);
 Array(200).fill().forEach(addStar);
 
 //background
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('assets/space.jpg');
 scene.background = spaceTexture;
 
 
