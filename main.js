@@ -20,9 +20,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera);
 
-//model creation
-
-
 //model addition
 const loader = new GLTFLoader();
 
@@ -82,7 +79,7 @@ scene.add(pointLight);
 
 
 const controls = new OrbitControls( camera, renderer.domElement );
-camera.position.set(5, 2, -3);
+camera.position.set(5, 2, -1);
 controls.autoRotate = true;
 
 function animate() {
@@ -94,3 +91,35 @@ function animate() {
 }
 
 animate();
+
+function clock() {// We create a new Date object and assign it to a variable called "time".
+  var time = new Date(),
+      
+      // Access the "getHours" method on the Date object with the dot accessor.
+      hours = time.getHours(),
+      
+      // Access the "getMinutes" method with the dot accessor.
+      minutes = time.getMinutes(),
+      
+      
+      seconds = time.getSeconds(),
+
+      amOrPm = time.getTimezoneOffset() > 0 ? "PM" : "AM";
+
+    if (hours > 12) {
+        hours -= 12;
+    } else if (hours === 0) {
+       hours = 12;
+    }
+
+  
+  document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds) + " " + harold(amOrPm);
+    
+    function harold(standIn) {
+      if (standIn < 10) {
+        standIn = '0' + standIn
+      }
+      return standIn;
+    }
+  }
+  setInterval(clock, 1000);
