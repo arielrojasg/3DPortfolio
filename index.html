@@ -14,22 +14,50 @@
     <title>Ariel Rojas</title>
   </head>
   <body>
-    <canvas id="bg"></canvas>
+    <div>
+        <canvas id="bg"></canvas>
+    </div>
 
     <main>
+      <div class="topnav">
+        <a class="active" href="#Home">Home</a>
+        <a href="#About">About</a>
+        <a href="#Resume">Resume</a>
+        <a href="#Contact">Contact</a>
+      </div>
 
-      <header>
+      <header id="Home">
         <h1>Ariel Rojas</h1>
-        <p>Web Developer and Programmer based in Costa Rica</p>
+        <p>Software Engineer based in Costa Rica</p>
         <div class="clock"></div>
       </header>
 
-      <section>
-        <h2> 🎓Education</h2>
-        <h3>Bachelor's Degree in Systems Engineering</h3>
+      <section id="About">
+        <h2>About</h2>
+        <img id="pfp" src="ariel.jpg" alt="Ariel Rojas" />
         <p>
-          National University of Costa Rica(UNA) 2015-2021
+          I am a software engineer born and raised in Costa Rica. I have a passion for analog photography, food and music, but mainly for
+          creating software that improves the lives of others.
         </p>
+        <p> Currently working as an Identity Security Specialist at Oxford Computer Group</p>
+      </section>
+
+      <section id="Resume">
+        <h2>Resume</h2>
+        <h3>Sotheby's Costa Rica</h3>
+        <h4>Web Developer</h4>
+        <p>● Planned website development, converting Django templates into usable web presence with HTML and Python.</p>     
+        <p>● API Development using Javascript for CRM applications. </p>
+        <p>● Linux web server management for testing, using LAMP stack.</p>
+        <p>● Established presentation consistency across Chrome, Safari, Firefox and other common browser interfaces.</p>
+        <p>● Collaborated with marketing, representing web team to establish project goals, projections and milestones.</p>
+
+        <h3>Oxford Computer Group</h3>
+        <h4>Identity Security Specialist</h4>
+        <p>● Implementation and management of Identity solutions, using Microsoft tools, like MIM and Active Directory.</p>
+        <p>● Custom Cloud Solutions Developer using Azure as a platform, taking into account latest security standards and adjusting to client needs. </p>
+        <p>● Implemented Azure B2C for multiple top US companies. </p>
+        <p>● API Development using NodeJS, Javascript and Python programming languages for Azure API Service.</p>
 
         <h2>📜 Certifications</h2>
         <h3>Microsoft:</h3>
@@ -51,32 +79,16 @@
           <li>Saviynt L200 and L100</li>
 
         </ul>
-
       </section>
-
-      <section class="light">
-        <h2>👩🏽‍🚀 Projects</h2>
-
-        <p>No projects yet, but you can take a look at my Github</p>
-      </section>
-
-      <section class="light">
-        <h2>🌮 Work History</h2>
-        <h3>Sotheby's Costa Rica</h3>
-        <h4>Web Developer</h4>
-        <p>● Planned website development, converting Django templates into usable web presence with HTML and Python.</p>     
-        <p>● API Development using Javascript for CRM applications. </p>
-        <p>● Linux web server management for testing, using LAMP stack.</p>
-        <p>● Established presentation consistency across Chrome, Safari, Firefox and other common browser interfaces.</p>
-        <p>● Collaborated with marketing, representing web team to establish project goals, projections and milestones.</p>
-
-        <h3>Oxford Computer Group</h3>
-        <h4>Identity Security Specialist</h4>
-        <p>● Implementation and management of Identity solutions, using Microsoft tools, like MIM and Active Directory.</p>
-        <p>● Custom Cloud Solutions Developer using Azure as a platform, taking into account latest security standards and adjusting to client needs. </p>
-        <p>● Implemented Azure B2C for multiple top US companies. </p>
-        <p>● API Development using NodeJS, Javascript and Python programming languages for Azure API Service.</p>
-      </section>
+      <section id="Contact">
+        <h2>Contact</h2>
+          <p><a href="mailto:arielrojasg18@gmail.com">arielrojasg18@gmail.com</a></p>
+          <p><a href="https://www.linkedin.com/in/ariel-rojas-6448201a7/">LinkedIn</a></p>
+          <p><a href="https://github.com/arielrojasg">GitHub</a></p>
+        </section>
+      <footer>
+        <p>© 2022 Ariel Rojas</p>
+      </footer>
     </main>
     <script type="module" src="./main.js"></script>
   </body>

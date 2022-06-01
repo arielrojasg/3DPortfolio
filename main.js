@@ -18,6 +18,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 
+
 renderer.render(scene, camera);
 
 //model addition
@@ -53,8 +54,6 @@ loader.load(
 );
 
 
-
-
 //light creation
 const ambientLight = new THREE.AmbientLight(0xffffff);
 const pointLight = new THREE.PointLight(0xffffff);
@@ -73,9 +72,9 @@ scene.add(pointLight);
 //scene.add(lightHelper);
 //scene.add(gridHelper);
 
-//background
-//const spaceTexture = new THREE.TextureLoader().load('space.jpg');
-//scene.background = spaceTexture;
+// set background to grey
+scene.background = new THREE.Color( 0xff202023 );
+
 
 
 const controls = new OrbitControls( camera, renderer.domElement );
@@ -92,24 +91,24 @@ function animate() {
 
 animate();
 
+
 function clock() {// We create a new Date object and assign it to a variable called "time".
-  var time = new Date(),
+    var time = new Date(),
       
       // Access the "getHours" method on the Date object with the dot accessor.
-      hours = time.getHours(),
-      
-      // Access the "getMinutes" method with the dot accessor.
-      minutes = time.getMinutes(),
-      
-      
-      seconds = time.getSeconds(),
+    hours = time.getHours(),
+    
+    // Access the "getMinutes" method with the dot accessor.
+    minutes = time.getMinutes(),
+    
+    
+    seconds = time.getSeconds(),
 
-      amOrPm = time.getTimezoneOffset() > 0 ? "PM" : "AM";
-
+    amOrPm = hours >= 12 ? 'PM' : 'AM';
     if (hours > 12) {
-        hours -= 12;
+      hours -= 12;
     } else if (hours === 0) {
-       hours = 12;
+      hours = 12;
     }
 
   
