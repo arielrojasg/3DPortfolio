@@ -2,16 +2,21 @@ html {
   background-color: #202023
 }
 
+#three{
+  max-height: 35rem;
+  margin-top: 1rem;
+}
 canvas {
   display: block;
   margin: 0 auto;
-  background-color: #202023
+  background-color: #202023;
+  max-height: inherit;
 }
 
 
 :root {
   --dark-bg: #202023;
-  --spacing: 350px;
+  --spacing: 2.5rem;
 
   font-family:'Orbitron';
   font-weight: 300;
@@ -23,13 +28,10 @@ main {
   width: 100vw;
   color: white;
   z-index: 99;
-  position: absolute;
   width: 100%;
   margin: 0px auto;
-  padding: 120px 0px;
-  
-  display: grid;
   grid-template-columns: repeat(12, 1fr);
+  text-align:center;
 }
 
 h1, h2, h3, blockquote {
@@ -38,54 +40,39 @@ h1, h2, h3, blockquote {
   font-style: normal;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 
 
   header {
     grid-column: 2 / span 4;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 1rem;
+    margin-bottom: 12rem;
   }
 
+  /* make section full width */
   section {
-    grid-column: 2 / 8;
+    grid-column: 2 / span 12;
     padding: 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: var(--spacing);
-    background:rgba(12, 12, 13, 0.3);
+    text-align:center;
+    background:rgba(12, 12, 13, 0.6);
   }
-
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
+  /* section {
+    padding: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
     margin-bottom: var(--spacing);
-  }
-
-  blockquote p {
-    color: #202023;
-    background-color: white;
-    font-size: 1rem;
-    display: inline;
-    line-height: 1;
-  }
-
-  .left {
-    grid-column: 6 / 12;
-  }
+    background:rgba(12, 12, 13, 0.6);
+  } */
 
   .clock {
     font-family: 'Orbitron', sans-serif;
     color: #66ff99;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
-    text-align:left;
+    text-align:center;
     grid-column: 2 / span 4;
     padding: 1rem;
     margin-bottom: var(--spacing);
@@ -97,13 +84,14 @@ canvas {
   top: 0;
   width: 100%;
   z-index: 99;
-  background-color: #202023;
+  background-color: rgba(32, 32, 35, 0.5);
+  align-items: center;
 }
 
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
+  float: center;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -113,8 +101,8 @@ canvas {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: gray;
+  color: white;
 }
 
 /* Add a color to the active/current link */
@@ -125,7 +113,6 @@ canvas {
 
 /* Keep footer on bottom */
 footer {
-  position:absolute;
   bottom: 0;
   width: 100%;
   z-index: 99;
@@ -140,4 +127,11 @@ footer {
   height: 6rem;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+/* leave space for the i tag */
+#Contact a{
+  margin: 5%;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
 }

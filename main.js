@@ -8,15 +8,14 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight, 0.1,1000);
-
+const camera = new THREE.PerspectiveCamera(50,1, 0.1,1000);
 const renderer = new THREE.WebGL1Renderer({
   canvas: document.querySelector('#bg'),
 });
 
 renderer.setPixelRatio(window.devicePixelRatio);
+/* set renderer size to smaller than window */
 renderer.setSize(window.innerWidth, window.innerHeight);
-
 
 
 renderer.render(scene, camera);
@@ -78,12 +77,32 @@ scene.background = new THREE.Color( 0xff202023 );
 
 
 const controls = new OrbitControls( camera, renderer.domElement );
-camera.position.set(5, 2, -1);
+camera.position.y = 5;
+camera.position.x = 6;
+camera.position.z = 3;
 controls.autoRotate = true;
+controls.enableZoom = false;
+
+function resizeCanvasToDisplaySize() {
+  const canvas = renderer.domElement;
+  // look up the size the canvas is being displayed
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+
+  // adjust displayBuffer size to match
+  if (canvas.width !== width || canvas.height !== height) {
+    // you must pass false here or three.js sadly fights the browser
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    // update any render target sizes here
+  }
+}
 
 function animate() {
   requestAnimationFrame(animate);
-
+  resizeCanvasToDisplaySize();
   controls.update();
 
   renderer.render(scene, camera);
