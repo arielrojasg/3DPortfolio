@@ -3,27 +3,32 @@ html {
 }
 
 #three{
-  max-height: 35rem;
-  margin-top: 1rem;
+  max-width: 100%;
 }
 canvas {
-  display: block;
-  margin: 0 auto;
   background-color: #202023;
-  max-height: inherit;
+  max-width: inherit;
 }
 
 
 :root {
   --dark-bg: #202023;
   --spacing: 2.5rem;
-
   font-family:'Orbitron';
   font-weight: 300;
   font-style: normal;
 }
 
 
+/* put header on bottom of screen */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 main {
   width: 100vw;
   color: white;
@@ -31,7 +36,7 @@ main {
   width: 100%;
   margin: 0px auto;
   grid-template-columns: repeat(12, 1fr);
-  text-align:center;
+  text-align:center;;
 }
 
 h1, h2, h3, blockquote {

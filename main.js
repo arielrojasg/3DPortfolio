@@ -16,8 +16,6 @@ const renderer = new THREE.WebGL1Renderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 /* set renderer size to smaller than window */
 renderer.setSize(window.innerWidth, window.innerHeight);
-
-
 renderer.render(scene, camera);
 
 //model addition
@@ -77,11 +75,12 @@ scene.background = new THREE.Color( 0xff202023 );
 
 
 const controls = new OrbitControls( camera, renderer.domElement );
-camera.position.y = 5;
+camera.position.y = 4;
 camera.position.x = 6;
-camera.position.z = 3;
+camera.position.z = 10;
 controls.autoRotate = true;
 controls.enableZoom = false;
+controls.enableRotate = false;
 
 function resizeCanvasToDisplaySize() {
   const canvas = renderer.domElement;
