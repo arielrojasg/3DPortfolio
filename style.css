@@ -1,15 +1,16 @@
 html {
-  background-color: #202023
+  background-color: #202023;
 }
 
 #three{
   max-width: 100%;
 }
+
 canvas {
   background-color: #202023;
   max-width: inherit;
+  position:relative;
 }
-
 
 :root {
   --dark-bg: #202023;
@@ -19,16 +20,17 @@ canvas {
   font-style: normal;
 }
 
-
-/* put header on bottom of screen */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+/* keep header on bottom of the page */
+header {
+  position: absolute;
+  top: 65%;
+  height: 3rem;
+  z-index: 1;
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 main {
   width: 100vw;
   color: white;
@@ -36,7 +38,7 @@ main {
   width: 100%;
   margin: 0px auto;
   grid-template-columns: repeat(12, 1fr);
-  text-align:center;;
+  text-align:center;
 }
 
 h1, h2, h3, blockquote {
@@ -45,43 +47,34 @@ h1, h2, h3, blockquote {
   font-style: normal;
 }
 
+header {
+  grid-column: 2 / span 4;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 12rem;
+}
 
+/* make section full width */
+section {
+  grid-column: 2 / span 12;
+  padding: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+  text-align:center;
+  background:rgba(12, 12, 13, 0.6);
+}
 
-  header {
-    grid-column: 2 / span 4;
-    font-size: 1.2rem;
-    padding: 1rem;
-    margin-bottom: 12rem;
-  }
-
-  /* make section full width */
-  section {
-    grid-column: 2 / span 12;
-    padding: 1rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-    text-align:center;
-    background:rgba(12, 12, 13, 0.6);
-  }
-  /* section {
-    padding: 1rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-    background:rgba(12, 12, 13, 0.6);
-  } */
-
-  .clock {
-    font-family: 'Orbitron', sans-serif;
-    color: #66ff99;
-    font-size: 2rem;
-    font-weight: 700;
-    text-align:center;
-    grid-column: 2 / span 4;
-    padding: 1rem;
-    margin-bottom: var(--spacing);
-  }
+.clock {
+  font-family: 'Orbitron', sans-serif;
+  color: #66ff99;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align:center;
+  grid-column: 2 / span 4;
+  padding: 1rem;
+  margin-bottom: var(--spacing);
+}
 
 /* keep navigation bar on top*/
 .topnav {
@@ -116,7 +109,7 @@ h1, h2, h3, blockquote {
   color: white;
 }
 
-/* Keep footer on bottom */
+/* Keep footer on bottom and all lines are aligned */
 footer {
   bottom: 0;
   width: 100%;
