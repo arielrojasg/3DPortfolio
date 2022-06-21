@@ -140,3 +140,39 @@ function clock() {// We create a new Date object and assign it to a variable cal
     }
   }
   setInterval(clock, 1000);
+
+
+  const topMenu = document.getElementsByClassName( "topnav" );
+  const topMenuHeight = topMenu.offsetHeight + 1;
+  const menuItems = document.querySelectorAll( ".menu-item" );
+  const scrollItems = document.querySelectorAll( "section" );
+  let lastId;
+  /* highlights the current section in the navbar */
+  window.addEventListener( "scroll", function () {
+    // Get container scroll position
+    const container = document.querySelector( "main" );
+    let fromTop = window.pageYOffset + topMenuHeight + 40;
+
+    // Get id of current scroll item
+    let cur = [];
+
+    [ ...scrollItems ].map( function ( item ) {
+      if ( item.offsetTop < fromTop ) {
+        cur.push( item );
+      }
+    } );
+
+    // Get the id of the current element
+    cur = cur[ cur.length - 1 ];
+    let id = cur ? cur.id : "";
+
+    if ( lastId !== id ) {
+      lastId = id;
+
+      menuItems.forEach( function ( elem, index ) {
+        elem.classList.remove( "active" );
+        const filteredItems = [ ...menuItems ].filter( elem => elem.getAttribute( "href" ) === `#${id}` );
+        filteredItems[ 0 ].classList.add( "active" );
+      } );
+    }
+  } );

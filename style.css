@@ -31,11 +31,17 @@ header {
   transform: translateX(-50%);
 }
 
+header p{
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+}
+
 main {
   width: 100vw;
   color: white;
   z-index: 99;
-  width: 100%;
+  max-width: 100%;
   margin: 0px auto;
   grid-template-columns: repeat(12, 1fr);
   text-align:center;
@@ -43,16 +49,11 @@ main {
 
 h1, h2, h3, blockquote {
   font-family: 'Orbitron';
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
 }
 
-header {
-  grid-column: 2 / span 4;
-  font-size: 1.2rem;
-  padding: 1rem;
-  margin-bottom: 12rem;
-}
+
 
 /* make section full width */
 section {
@@ -84,29 +85,31 @@ section {
   z-index: 99;
   background-color: rgba(32, 32, 35, 0.5);
   align-items: center;
+  height: 3rem;
 }
-
-
-/* Style the links inside the navigation bar */
-.topnav a {
+/* make navigation bar responsive */
+.topnav a{
+  display: inline;
   float: center;
-  color: #f2f2f2;
-  text-align: center;
+  color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
 }
+/* Style the links inside the navigation bar */
+
 
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: gray;
-  color: white;
-}
+  color: #66ff99;}
 
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: gray;
-  color: white;
+  color: #66ff99;
 }
 
 /* Keep footer on bottom and all lines are aligned */
@@ -127,9 +130,26 @@ footer {
   margin-right: 10px;
 }
 
-/* leave space for the i tag */
+#Contact {
+  display: inline-block;
+  justify-content: center;
+}
+
 #Contact a{
   margin: 5%;
   font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+#Contact p{
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  justify-content: center;
+}
+
+i{
+  font-size: 1.5rem!important;
+  margin-top: 14px;
 }
