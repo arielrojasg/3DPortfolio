@@ -29,11 +29,11 @@ loader.load(
 
 		scene.add( gltf.scene );
 
-		gltf.animations; // Array<THREE.AnimationClip>
-		gltf.scene; // THREE.Group
-		gltf.scenes; // Array<THREE.Group>
-		gltf.cameras; // Array<THREE.Camera>
-		gltf.asset; // Object
+		gltf.animations;
+		gltf.scene;
+		gltf.scenes;
+		gltf.cameras;
+		gltf.asset;
 
 	},
 	// called while loading is progressing
@@ -56,23 +56,13 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5,5,5);
 
-//helpers
-//const lightHelper = new THREE.PointLightHelper(pointLight);
-//const gridHelper = new THREE.GridHelper(200,50);
-
-//const controls = new OrbitControls(camera, renderer.domElement);
-
 
 //add to scene
 scene.add(ambientLight);
 scene.add(pointLight);
-//scene.add(lightHelper);
-//scene.add(gridHelper);
 
 // set background to grey
 scene.background = new THREE.Color( 0xff202023 );
-
-
 
 const controls = new OrbitControls( camera, renderer.domElement );
 camera.position.y = 4;
@@ -138,41 +128,30 @@ function clock() {// We create a new Date object and assign it to a variable cal
       }
       return standIn;
     }
-  }
-  setInterval(clock, 1000);
+}
+setInterval(clock, 1000);
 
-
-  const topMenu = document.getElementsByClassName( "topnav" );
-  const topMenuHeight = topMenu.offsetHeight + 1;
+/* highlights the current section in the navbar */
+function highlightOnScreenItem(){
   const menuItems = document.querySelectorAll( ".menu-item" );
-  const scrollItems = document.querySelectorAll( "section" );
-  let lastId;
-  /* highlights the current section in the navbar */
+  const sections = document.querySelectorAll( "section" );
+
   window.addEventListener( "scroll", function () {
-    // Get container scroll position
-    const container = document.querySelector( "main" );
-    let fromTop = window.pageYOffset + topMenuHeight + 40;
-
-    // Get id of current scroll item
-    let cur = [];
-
-    [ ...scrollItems ].map( function ( item ) {
-      if ( item.offsetTop < fromTop ) {
-        cur.push( item );
-      }
-    } );
-
-    // Get the id of the current element
-    cur = cur[ cur.length - 1 ];
-    let id = cur ? cur.id : "";
-
-    if ( lastId !== id ) {
-      lastId = id;
-
-      menuItems.forEach( function ( elem, index ) {
+      let current = '';
+      sections.forEach( section => {
+        const sectionTop = section.offsetTop;
+        if(scrollY >= sectionTop){
+          current = section.getAttribute('id');
+        }
+      })
+      
+      menuItems.forEach( elem => {
         elem.classList.remove( "active" );
-        const filteredItems = [ ...menuItems ].filter( elem => elem.getAttribute( "href" ) === `#${id}` );
-        filteredItems[ 0 ].classList.add( "active" );
-      } );
-    }
-  } );
+        if(elem.getAttribute( "href" ) === "#" + current){
+          elem.classList.add( "active" );
+        }
+      });
+  
+  });
+}
+highlightOnScreenItem();
