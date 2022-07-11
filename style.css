@@ -2,6 +2,9 @@ html {
   background-color: #202023;
 }
 
+#Home{
+  background-color: transparent!important;
+}
 #three{
   max-width: 100%;
 }
@@ -35,6 +38,7 @@ header p{
   font-size: 1.2rem;
   text-align: center;
   margin: 0;
+  width: 100%;
 }
 
 main {
@@ -149,7 +153,9 @@ footer {
   justify-content: center;
 }
 
-i{
-  font-size: 1.5rem!important;
+.social {
+  font-size: 2rem!important;
   margin-top: 14px;
+  color:white;
+  margin: 1rem;
 }
