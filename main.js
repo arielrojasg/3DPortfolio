@@ -6,6 +6,20 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
+import sslRedirect from 'heroku-ssl-redirect';
+import express from 'express';
+
+const app = express();
+ 
+// enable ssl redirect
+app.use(sslRedirect());
+ 
+app.get('/', (req, res) => {
+  res.send('hello world');
+});
+ 
+app.listen(process.env.PORT || 3000);
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(50,1, 0.1,1000);
