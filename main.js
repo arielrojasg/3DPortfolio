@@ -6,19 +6,16 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
-import sslRedirect from 'heroku-ssl-redirect';
-import express from 'express';
+var koa = require('koa');
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var forceSSL = require('koa-force-ssl');
 
-const app = express();
- 
-// enable ssl redirect
-app.use(sslRedirect());
- 
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
- 
-app.listen(process.env.PORT || 3000);
+var app = koa();
+
+// Force SSL on all page
+app.use(forceSSL());
 
 const scene = new THREE.Scene();
 
